@@ -1,0 +1,21 @@
+<section>
+    <header class="ph2 pv2 pv4-ns w-100 bg-moon-gray mb3 mb6-ns flex items-center justify start">
+        <h1 class="f2 f1-ns fw1 mv0 flex-auto">Photogrid Galleries</h1>
+        <a class="f4 fw2 flex-none dn db-ns mr2" href="/gallery/create">Create a Gallery</a>
+        <a class="f3 fw2 flex-none mr2 h2 w2 tc br-100 bg-blue white" href="/gallery/create">+</a>
+    </header>
+    <%if galleries.empty?%>
+        <h2 class="f2">There are no galleries. You should create one</h2>
+    <%else%>
+        <section class="flex flex-wrap justify-center mb6">
+            <% galleries.each do |gallery| %>
+                <article class="bg-silver ba b--moon-gray w-100 h5 w5-ns ma2 gallery-image" style="background-image: url(<%= gallery.images.first.src %>);">
+                    <a class="dib w-100 h-100 flex flex-column items-start justify-start pa2 bg-grad-top white" href="/gallery/<%= gallery.id %>">
+                        <h2 class="f2 w-100 mv0 fw2 pb3 flex-none"><%= gallery.title %></h2>
+                        <h3 class="f4 w-100 mv0 fw1 flex-auto"><%= gallery.keywords.join(", ") %></h3>
+                    </a>
+                </article>
+            <%end%>
+        </section>
+    <%end%>
+</section>

@@ -1,0 +1,28 @@
+<section>
+    <header class="pa2 pa4-ns w-100 flex items-center justify-start bg-moon-gray mb3 mb6-ns">
+        <div class="flex-auto">
+            <h1 class="f2 w-100 mv0 fw2 pb3"><%= gallery.title %></h1>
+            <h2 class="f4 w-100 mv0 fw2 pb3"><%= gallery.keywords.join(", ") %>
+        </div>
+        <div>
+            <a class="f4 fw2" href="/galleries">Back to Galleries</a>
+        </div>
+    </header>
+    <%if gallery.images.empty? %>
+        <div>
+            <div>No images found for these keywords.</div>
+            <a href="/gallery/edit/<%= gallery.id %>">Change keywords and try again</a>
+        </div>
+    <%else%>
+        <div class="flex flex-wrap justify-center mb6">
+            <% gallery.images.each do |image| %>
+                <div class="gallery-image w-100 h5 w5-ns hide-child flex flex-column justify-end ma2" style="background-image: url(<%= image.src %>);">
+                    <div class="child flex items-center justify-end bg-grad pa2">
+                        <div class="white flex-auto"><%= image.photographer %></div>
+                        <img class="dib br-100 h3 w3 flex-none" src="<%= image.photographer_avatar %>" />
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    <%end%>
+</section>
