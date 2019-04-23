@@ -1,17 +1,17 @@
 # Photogrid
 
+[![](https://user-images.githubusercontent.com/4499581/56572555-32f75000-65b7-11e9-8b55-4a240acea685.jpg)](http://photogrid.whitechapeau.com/)
+
 to run locally
 
 ```
 bundle install && ruby server.rb
 ```
 
-to build for deployment
+Get your self a [pixabay api key here](https://pixabay.com/service/about/api/) and set it as an environmental variable in your `.bashrc` or `.zshrc` file like this:
 
+```sh
+export PIXABAY_API_KEY=YOUR-KEY-GOES-HERE
 ```
-docker build -t container-name --build-arg PIXABAY_API_KEY=YOUR-KEY .
-```
-
-Get your self a [pixabay api key here](https://pixabay.com/service/about/api/)
 
 see the [demo here](http://photogrid.whitechapeau.com/)
