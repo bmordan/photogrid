@@ -16,7 +16,7 @@
     <%else%>
         <div class="flex flex-wrap justify-center mb6">
             <% gallery.images.each do |image| %>
-                <div class="gallery-image w-100 h5 w5-ns hide-child flex flex-column justify-end ma2" style="background-image: url(<%= image.src %>);">
+                <div class="gallery-image w-100 h5 w5-ns hide-child flex flex-column justify-end ma2" style="background-image: url(<%= image.url %>);">
                     <div class="child flex items-center justify-end bg-grad pa2">
                         <div class="white flex-auto"><%= image.photographer %></div>
                         <img class="dib br-100 h3 w3 flex-none" src="<%= image.photographer_avatar %>" />

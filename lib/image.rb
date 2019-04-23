@@ -1,5 +1,5 @@
 class Image
-  attr_reader :gallery_id, :src, :photographer, :photographer_avatar, :likes, :tags, :props
+  attr_reader :gallery_id, :src, :url, :photographer, :photographer_avatar, :likes, :tags, :props
 
   def initialize(id, result)
     @gallery_id = id
@@ -18,6 +18,10 @@ class Image
       @likes = result["likes"]
       @tags = result["tags"]
     end
+  end
+
+  def url
+    File.join("", "images", @src.split("/").last)
   end
 
   def props

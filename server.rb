@@ -1,7 +1,10 @@
 require "sinatra"
 require_relative "./lib/db"
+require_relative "./lib/downloader"
 
 db = DB.new
+
+set :bind, "0.0.0.0"
 
 get /\/|\/galleries/ do
   erb :galleries, :locals => { :galleries => db.get_galleries }, :layout => :layout
@@ -27,6 +30,7 @@ post "/gallery/create/keyword" do
     erb :gallery_create_keyword, :locals => { :keyword_count => keyword_count, :gallery_id => params["gallery_id"] }
   else
     gallery = db.add_images(params["gallery_id"])
+    Downloader.new(gallery)
     erb :gallery, :locals => { :gallery => gallery }
   end
 end
